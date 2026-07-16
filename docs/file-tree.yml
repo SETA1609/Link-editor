@@ -7,7 +7,7 @@ root:
 
   - path: build.zig
     status: stub
-    purpose: Zig build script — defines executable, links Nexus Engine, enables -DimGui
+    purpose: Zig build script — defines executable, links libnexus-engine.a, enables -DimGui
 
   - path: build.zig.zon
     status: stub

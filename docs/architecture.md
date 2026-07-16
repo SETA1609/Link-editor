@@ -36,7 +36,7 @@
 
 | Decision | Rationale |
 |----------|-----------|
-| **Separate binary** | Editor is a standalone executable linking Nexus Engine as a library. Engine ships games without editor. |
+| **Separate binary** | Editor is a standalone executable linking `libnexus-engine.a` (Cherno model). Engine ships games without editor. |
 | **Same-process** | Editor and runtime share one process. Avoids IPC, serialization, sync complexity. |
 | **Immediate-mode UI** | Dear ImGui — panels rebuilt every frame. Naturally hot-reloadable, no retained widget tree. |
 | **EditorHost boundary** | All editor→engine communication through a documented API. No direct access to engine internals. |
