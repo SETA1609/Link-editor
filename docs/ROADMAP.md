@@ -27,7 +27,7 @@ Crucible ships **after** Nexus v1.0.0 freezes `EditorHost` — the 2D game ships
 
 **Architectural decisions (fixed):**
 
-- Separate binary linking Nexus as a library ([theory/10](https://github.com/SETA1609/Nexus-engine/blob/main/docs/theory/10-hazel-hazelnut-split.md))
+- Separate binary linking `libnexus-engine.a` ([theory/10](https://github.com/SETA1609/Nexus-engine/blob/main/docs/theory/10-hazel-hazelnut-split.md))
 - Same-process `EditorHost` calls — no IPC at launch
 - Immediate-mode Dear ImGui — no retained widget tree
 - No direct Flecs linkage — ECS via `EditorHost.getEcsComponents`
@@ -39,7 +39,7 @@ Crucible ships **after** Nexus v1.0.0 freezes `EditorHost` — the 2D game ships
 
 | Version | Priority | Goal | Proving deliverable |
 |---------|----------|------|---------------------|
-| **v0.0.1** | 🔧 | Bootstrap | Empty ImGui window + Nexus link |
+| **v0.0.1** | 🔧 | Bootstrap | Empty ImGui window + Nexus static lib link |
 | **v1.1.0** | 🎯 | **2D editor core** | Edit `minimal-2d-game` scene in viewport |
 | **v1.1.1** | 🎯 | **Mod tooling** | Build + hot-reload a WASM mod |
 | **v1.2.0** | 🔧 | Localization | Locale preview + `.po` workflow |
@@ -50,7 +50,7 @@ Crucible ships **after** Nexus v1.0.0 freezes `EditorHost` — the 2D game ships
 
 ### v0.0.1 — Bootstrap 🔧
 
-**Goal:** Repo builds, links Nexus Engine, opens ImGui window.
+**Goal:** Repo builds, links libnexus-engine.a, opens ImGui window.
 
 - [ ] `build.zig` with Nexus Engine as a dependency
 - [ ] `src/main.zig` — init Nexus context + ImGui, main loop

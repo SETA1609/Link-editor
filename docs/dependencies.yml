@@ -11,10 +11,10 @@ dependencies:
     source: SETA1609/Nexus-engine
     version: ">=1.0.0"
     status: planned
-    consumed_as: git submodule
+    consumed_as: nexus module import + libnexus-engine.a linkage
     notes: >
       Provides EditorHost, SceneTree, ResourceDB, EcsBridge.
-      Crucible links against Nexus Engine as a library.
+      Types via addImport; implementation via linkLibrary on the static lib.
 
   - name: zgame (zGameLib)
     source: SETA1609/zGameLib (transitive via nexus-engine)

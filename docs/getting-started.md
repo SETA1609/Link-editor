@@ -19,11 +19,24 @@ zig build
 zig build run
 ```
 
+## How Nexus is consumed
+
+The editor follows the Cherno pattern: import the `nexus` module for types, link the pre-built static library for the compiled engine:
+
+```zig
+editor_mod.addImport("nexus", nexus_dep.module("nexus"));
+editor_mod.linkLibrary(nexus_dep.artifact("nexus-engine"));
+```
+
+Nexus produces `libnexus-engine.a` as its primary artifact (T2). The pipeline builds the static lib before the editor links it.
+
+---
+
 ## Dependencies
 
 | Dependency | Source | Required | Notes |
 |-----------|--------|----------|-------|
-| Nexus Engine | `SETA1609/Nexus-engine` | Yes | Provides `EditorHost`, `SceneTree`, `ResourceDB` |
+| Nexus Engine | `SETA1609/Nexus-engine` | Yes | `EditorHost`, `SceneTree`, `ResourceDB` via `nexus` module + `libnexus-engine.a` |
 | zGameLib | Transitive via Nexus | Yes | Platform, Vulkan, GPU |
 | Dear ImGui | zGameLib `zimgui` (`-DimGui=true`) | **Yes** | Hard dependency for Crucible |
 | Flecs | Transitive via Nexus | No direct | Editor uses `EditorHost.getEcsComponents` |
