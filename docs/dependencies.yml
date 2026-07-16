@@ -1,0 +1,62 @@
+# Link-editor (Crucible) — dependencies
+
+version: 0.0.1
+status: planned
+
+# ── Direct dependencies ────────────────────────────────────────────
+
+dependencies:
+
+  - name: nexus-engine
+    source: SETA1609/Nexus-engine
+    version: ">=1.0.0"
+    status: planned
+    consumed_as: git submodule
+    notes: >
+      Provides EditorHost, SceneTree, ResourceDB, EcsBridge.
+      Crucible links against Nexus Engine as a library.
+
+  - name: zgame (zGameLib)
+    source: SETA1609/zGameLib (transitive via nexus-engine)
+    version: ">=1.0.0"
+    status: planned
+    consumed_as: transitive
+    notes: >
+      Platform, Vulkan, GPU, FrameRing.
+      Accessed through nexus-engine re-exports.
+
+  - name: zgame.zimgui
+    source: SETA1609/zGameLib (optional module -DimGui)
+    version: ">=1.0.0"
+    status: planned
+    consumed_as: transitive
+    notes: >
+      Dear ImGui bindings. HARD dependency for Crucible
+      (unlike Nexus Engine where it is optional for debug-ui).
+
+# ── Transitive (no direct linkage) ─────────────────────────────────
+
+transitive:
+
+  - name: flecs
+    source: indirect via nexus-engine
+    version: any
+    status: planned
+    notes: >
+      Crucible does NOT link Flecs directly.
+      ECS introspection is through EditorHost.getEcsComponents.
+
+# ── Consumed by ────────────────────────────────────────────────────
+
+consumed_by:
+  - name: game-projects
+    type: application
+    notes: >
+      Games that use Nexus Engine can optionally use Crucible for editing.
+
+# ── Platform support ───────────────────────────────────────────────
+
+platforms:
+  - linux
+  - windows
+  - macos

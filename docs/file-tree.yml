@@ -1,0 +1,120 @@
+# Link-editor (Crucible) — file tree and status
+
+version: 0.0.1
+status: planned
+
+root:
+
+  - path: build.zig
+    status: stub
+    purpose: Zig build script — defines executable, links Nexus Engine, enables -DimGui
+
+  - path: build.zig.zon
+    status: stub
+    purpose: Package manifest — declares nexus-engine dependency
+
+  - path: src/main.zig
+    status: stub
+    purpose: Entrypoint — init Nexus context + ImGui, run editor loop
+
+  - path: src/panels/
+    status: planned
+    purpose: Dock panel implementations
+
+  - path: src/panels/scene_tree.zig
+    status: planned
+    purpose: Scene hierarchy dock — tree view, drag reparent, add/delete
+
+  - path: src/panels/inspector.zig
+    status: planned
+    purpose: Property inspector — type-aware editors, undo/redo
+
+  - path: src/panels/viewport.zig
+    status: planned
+    purpose: 3D/2D viewport — camera controls, gizmo, grid
+
+  - path: src/panels/asset_browser.zig
+    status: planned
+    purpose: Asset thumbnail grid — drag-to-scene, import settings
+
+  - path: src/toolbar.zig
+    status: planned
+    purpose: Play/stop/pause/build buttons
+
+  - path: src/file_watcher.zig
+    status: planned
+    purpose: OS file notification — inotify/FSEvents/ReadDirectoryChangesW
+
+  - path: src/theme.zig
+    status: planned
+    purpose: Editor style — colors, fonts, layout
+
+  - path: src/host.zig
+    status: planned
+    purpose: EditorHost client — thin wrapper around Nexus Engine's host API
+
+  - path: docs/
+    status: shipped
+    purpose: Documentation suite
+
+  - path: docs/README.md
+    status: shipped
+    purpose: Documentation index
+
+  - path: docs/architecture.md
+    status: shipped
+    purpose: Editor architecture overview
+
+  - path: docs/getting-started.md
+    status: shipped
+    purpose: Build and usage guide
+
+  - path: docs/roadmap.md
+    status: shipped
+    purpose: Version milestones
+
+  - path: docs/dependencies.yml
+    status: shipped
+    purpose: Dependency inventory
+
+  - path: docs/file-tree.yml
+    status: shipped
+    purpose: This file — repo layout and status
+
+  - path: docs/theory/README.md
+    status: shipped
+    purpose: Theory reading path
+
+  - path: docs/examples/
+    status: planned
+    purpose: Example editor project design docs
+
+  - path: libs/
+    status: planned
+    purpose: Git submodules (nexus-engine)
+
+  - path: examples/
+    status: planned
+    purpose: Example editor projects
+
+  - path: .github/workflows/build.yml
+    status: stub
+    purpose: CI — zig build + zig build run
+
+  - path: .gitignore
+    status: shipped
+    purpose: Standard Zig/C/C++ ignores
+
+  - path: LICENSE
+    status: planned
+    purpose: Project license
+
+  - path: NOTICE
+    status: planned
+    purpose: Third-party notices
+
+# ── Status legend ──────────────────────────────────────────────────
+# shipped  = written and committed (may evolve)
+# stub     = exists but needs real implementation
+# planned  = designed but not yet created
+# legacy   = leftover from template, needs removal

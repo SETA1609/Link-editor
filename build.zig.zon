@@ -1,0 +1,14 @@
+.{
+    .name = .link_editor,
+    .version = "0.0.1",
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{
+        .nexus_engine = .{ .path = "libs/nexus-engine" },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "docs",
+    },
+}
