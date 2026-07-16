@@ -43,6 +43,7 @@ pub fn build(b: *std.Build) void {
         "Full pipeline: Nexus-engine → Link-editor");
     pipeline_step.dependOn(engine_step);
     pipeline_step.dependOn(editor_step);
+    pipeline_step.dependOn(b.getInstallStep());
 
     b.default_step = pipeline_step;
 
