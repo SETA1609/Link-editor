@@ -21,6 +21,7 @@ Read these first (in order) to understand the engine the editor edits:
 | 08 | [Hot reload (engine)](https://github.com/SETA1609/Nexus-engine/blob/main/docs/theory/08-hot-reload-nexus-engine.md) | ReloadEventBus — editor drives resource/scene hot reload |
 | 09 | [Hot reload (Crucible)](https://github.com/SETA1609/Nexus-engine/blob/main/docs/theory/09-hot-reload-crucible.md) | Editor-specific hot reload — file watcher, play-in-editor |
 | 10 | [Hazel/Hazelnut split](https://github.com/SETA1609/Nexus-engine/blob/main/docs/theory/10-hazel-hazelnut-split.md) | Why the editor is a separate binary |
+| 13 | [WASM modding](https://github.com/SETA1609/Nexus-engine/blob/main/docs/theory/13-wasm-modding.md) | Editor as WASM compilation abstraction layer |
 
 ---
 
@@ -37,6 +38,7 @@ These concepts are unique to Crucible and documented here:
 | Undo/redo system | Not yet documented | Planned |
 | Editor plugin API | Not yet documented | Post-1.2 |
 | Detached (IPC) mode | Not yet documented | Post-1.2 |
+| WASM mod build pipeline | [Nexus theory/13](https://github.com/SETA1609/Nexus-engine/blob/main/docs/theory/13-wasm-modding.md) | Specified (editor as abstraction layer) |
 
 ---
 
@@ -48,6 +50,7 @@ These concepts are unique to Crucible and documented here:
  3. Nexus theory/10 — Hazel/Hazelnut split (why separate repo)
  4. Nexus Reference §9 — EditorHost API (the contract)
  5. Nexus Reference §13 — Three UI lanes (ImGui role)
- 6. docs/architecture.md — This editor's architecture
- 7. docs/getting-started.md — Build and run
+ 6. Nexus theory/13 — WASM modding (editor abstraction layer)
+ 7. docs/architecture.md — This editor's architecture
+ 8. docs/getting-started.md — Build and run
 ```
