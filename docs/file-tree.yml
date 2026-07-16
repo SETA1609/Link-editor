@@ -69,6 +69,7 @@ root:
     status: shipped
     purpose: Build and usage guide
 
+  - path: docs/ROADMAP.md
   - path: docs/roadmap.md
     status: shipped
     purpose: Version milestones

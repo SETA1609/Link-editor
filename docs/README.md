@@ -15,7 +15,7 @@ Crucible is the **detachable immediate-mode editor** for the Nexus game engine s
 |-----|-------------|
 | [`architecture.md`](architecture.md) | Editor architecture — detached process, ImGui panels, EditorHost |
 | [`getting-started.md`](getting-started.md) | Build, run, and configure the editor |
-| [`roadmap.md`](roadmap.md) | Editor version milestones |
+| [`ROADMAP.md`](ROADMAP.md) | Editor version milestones (2D-first) |
 | [`dependencies.yml`](dependencies.yml) | Dependency inventory |
 | [`file-tree.yml`](file-tree.yml) | Repo file status |
 | [`theory/README.md`](theory/README.md) | Theory reading path |
