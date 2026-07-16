@@ -1,6 +1,7 @@
 .{
     .name = .link_editor,
     .version = "0.0.1",
+    .fingerprint = 0xad35b53592684cff,
     .minimum_zig_version = "0.16.0",
     .dependencies = .{
         .nexus_engine = .{ .path = "libs/nexus-engine" },
