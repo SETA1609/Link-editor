@@ -24,6 +24,11 @@ The editor links against a static library (`.a` / `.lib`) placed in `plugins/`.
 The engine must export `createEngineInterface()` — discovered via `@extern` at
 link time. No direct source dependency on any engine repo.
 
+## Architecture decisions
+
+Locked-in decisions at [`docs/architecture-decisions.md`](docs/architecture-decisions.md):
+engine-agnostic consumer through EngineInterface, script encapsulation for CI.
+
 ## EngineInterface contract
 
 Defined in `contract/engine_interface.zig` at the bundle root. The editor
