@@ -3,30 +3,32 @@
 ## Build & run
 
 ```sh
-zig build              # compile (default: pipeline → engine lib → editor)
+zig build              # compile (default: pipeline)
 zig build run          # build + run (needs display + Vulkan loader)
-zig build build-editor # editor only (depends on build-lib from engine)
 ```
 
-Requires Zig **0.16.0**.
-
-## Docker development
+Requires a pre-built engine `.a` in `plugins/`.
 
 ```sh
-./scripts/build-in-docker.sh              # `zig build pipeline` in Docker
-./scripts/build-in-docker.sh build-editor # editor only
-./scripts/shell.sh                        # interactive container shell
-./scripts/clean.sh                        # remove volumes + build artifacts
+# First build the engine and install its plugin:
+cd ../engine && zig build build-lib
+cp zig-out/lib/libnexus-engine.a ../editor/plugins/
+
+# Then build the editor:
+cd ../editor && zig build
 ```
 
-## Dependency: Nexus-engine
+## Dependency: Engine plugin
 
-Symlinked at `libs/nexus-engine` (Git submodule). The editor imports the `nexus`
-module for types and links `libnexus-engine.a`.
+The editor links against a static library (`.a` / `.lib`) placed in `plugins/`.
+The engine must export `createEngineInterface()` — discovered via `@extern` at
+link time. No direct source dependency on any engine repo.
 
-```sh
-git submodule update --init --recursive
-```
+## EngineInterface contract
+
+Defined in `contract/engine_interface.zig` at the bundle root. The editor
+imports this module for types and consumes the engine entirely through the
+vtable-based `EngineInterface`.
 
 ## CI
 

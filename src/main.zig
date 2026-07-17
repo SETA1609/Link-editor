@@ -1,15 +1,18 @@
 const std = @import("std");
-const nexus = @import("nexus");
+const engine = @import("engine_interface");
 
 pub fn main() !void {
-    var app = try nexus.NexusApp.init(.{
+    const factory = @extern(engine.EngineFactory, .{ .name = "createEngineInterface" });
+    var iface = factory();
+    errdefer iface.deinit();
+
+    try iface.init(.{
         .title = "Link-editor (Crucible)",
         .width = 1600,
         .height = 900,
     });
-    defer app.deinit();
 
-    while (!app.shouldClose()) {
-        try app.tick();
+    while (!iface.shouldClose()) {
+        try iface.tick();
     }
 }
