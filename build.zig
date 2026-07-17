@@ -25,7 +25,7 @@ pub fn build(b: *std.Build) void {
         .name = "link-editor",
         .root_module = editor_mod,
     });
-    exe.addObjectFile(b.path("plugins/libnexus-engine.a"));
+    exe.root_module.addObjectFile(b.path("plugins/libnexus-engine.a"));
 
     b.installArtifact(exe);
 
